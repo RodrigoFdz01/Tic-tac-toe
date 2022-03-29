@@ -1,4 +1,6 @@
 let cells = document.querySelectorAll(".cell");
+let botonplay = document.querySelector(".buttonplay");
+let mensaje = document.querySelector(".mensajeresult");
 cells = Array.from(cells);
 
 let currentPlayer = "X";
@@ -17,17 +19,18 @@ let winningCombinations = [
 function checkForWinner() {
   winningCombinations.forEach(function (combination) {
     let check = combination.every(
-      (idx) => cells[idx].innerText.trim() == currentPlayer
+      (index) => cells[index].innerText.trim() == currentPlayer
     );
     if (check) {
       highlightCells(combination);
+      mensaje.innerText = "X/O won";
     }
   });
 }
 
 function highlightCells(combination) {
-  combination.forEach(function (idx) {
-    cells[idx].classList.add("highlight");
+  combination.forEach(function (index) {
+    cells[index].classList.add("highlight");
   });
 }
 
@@ -37,5 +40,12 @@ cells.forEach(function (cell) {
     cell.innerText = currentPlayer;
     checkForWinner();
     currentPlayer = currentPlayer == "X" ? "O" : "X";
+  });
+});
+
+botonplay.addEventListener("click", function () {
+  cells.forEach(function (cell) {
+    cell.innerText = "";
+    cell.classList.remove("highlight");
   });
 });
