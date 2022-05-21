@@ -4,7 +4,7 @@ body {
 }
 
 body {
-  background-color: #288120;
+  background-color: #339933;
   text-align: center;
   margin: auto;
   font-family: Arial, Helvetica, sans-serif;
@@ -14,6 +14,7 @@ body {
   height: 300px;
   width: 300px;
   margin: auto;
+  margin-bottom: 60px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
@@ -35,38 +36,58 @@ body {
   border-bottom: none;
 }
 .cell.highlight {
-  background-color: #f7b32c;
+  background-color: #f4f72c;
 }
 
 .button-container {
-  background-color: #441bd8;
-
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin-left: auto;
+  justify-content: space-around;
+  width: 100%;
+  margin: 50px auto 50px;
 }
-.button-container button {
-  background-color: #271286;
+
+.buttonplay {
+  background-color: #2e1e79;
   color: rgb(204, 211, 204);
   font-size: 1rem;
   font-weight: bold;
   letter-spacing: 0.1em;
   padding: 15px 20px;
-  margin-left: 15px;
   border-radius: 5px;
   border: 1px solid white;
-  height: 50px;
 }
-.button-container p {
-  background-color: #128635;
+.mensajeresult {
+  background-color: #0ea13a;
   color: rgb(204, 211, 204);
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: bold;
   letter-spacing: 0.1em;
   padding: 15px 20px;
-  margin-left: 15px;
   border-radius: 5px;
   border: 1px solid white;
+  width: 300px;
+  margin: auto;
+}
+
+@media (min-width: 320px) and (max-width: 375px) {
+  .button-container {
+    width: auto;
+    margin: 0;
+  }
+  .buttonplay {
+    width: 40%;
+    font-size: 1rem;
+    padding: 10px;
+    font-weight: none;
+  }
+
+  .mensajeresult {
+    width: 40%;
+    font-size: 1rem;
+    padding: 10px;
+    font-weight: none;
+  }
 }

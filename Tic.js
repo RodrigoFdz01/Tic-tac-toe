@@ -3,6 +3,7 @@ let botonplay = document.querySelector(".buttonplay");
 let mensaje = document.querySelector(".mensajeresult");
 cells = Array.from(cells);
 
+mensaje.style.display = "none";
 let currentPlayer = "X";
 
 let winningCombinations = [
@@ -24,6 +25,7 @@ function checkForWinner() {
     if (check) {
       highlightCells(combination);
       mensaje.innerText = "X/O won";
+      mensaje.style.display = "block";
     }
   });
 }
@@ -47,5 +49,6 @@ botonplay.addEventListener("click", function () {
   cells.forEach(function (cell) {
     cell.innerText = "";
     cell.classList.remove("highlight");
+    mensaje.style.display = "none";
   });
 });
