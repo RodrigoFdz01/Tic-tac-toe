@@ -2,7 +2,7 @@ let cells = document.querySelectorAll(".cell");
 let botonplay = document.querySelector(".buttonplay");
 let mensaje = document.querySelector(".mensajeresult");
 cells = Array.from(cells);
-
+//console.log(cells);
 mensaje.style.display = "none";
 let currentPlayer = "X";
 
@@ -22,16 +22,31 @@ function checkForWinner() {
     let check = combination.every(
       (index) => cells[index].innerText.trim() == currentPlayer
     );
+    //console.log(check);
+    // console.log(combination[check]);
+
     if (check) {
       highlightCells(combination);
-      mensaje.innerText = "X/O won";
+      mensaje.innerText = `"${currentPlayer} won !!!"`;
       mensaje.style.display = "block";
+      botonplay.innerText = "Play Again";
+      //  removeClick();
     }
   });
 }
 
-function highlightCells(combination) {
-  combination.forEach(function (index) {
+function removeClick() {
+  for (let i = 0; i < cells.length; i++) {
+    if (cells[i].length == 0) {
+      cells.innerText = "-";
+    }
+  }
+}
+
+function highlightCells(combi) {
+  //console.log(combi);
+
+  combi.forEach(function (index) {
     cells[index].classList.add("highlight");
   });
 }
